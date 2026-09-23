@@ -24,6 +24,7 @@ exports.up = async function up(knex) {
       pesapal_merchant_id VARCHAR(100),
       pesapal_consumer_key VARCHAR(255),
       pesapal_consumer_secret VARCHAR(255),
+      pesapal_paybill_linked VARCHAR(20),
       daraja_enabled BOOLEAN DEFAULT FALSE,
       daraja_consumer_key VARCHAR(255),
       daraja_consumer_secret VARCHAR(255),
