@@ -1,0 +1,21 @@
+# Files Render should not upload or treat as part of the service
+.git
+.github
+.vercel
+.agents
+node_modules
+backend/node_modules
+frontend/node_modules
+backend/.pglite
+backend/.pgdata
+frontend/dist
+**/*.log
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+coverage
+.DS_Store
+Thumbs.db
