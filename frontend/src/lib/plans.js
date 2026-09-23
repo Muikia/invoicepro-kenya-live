@@ -1,0 +1,58 @@
+export const PLANS = {
+  free: {
+    id: 'free',
+    name: 'Free',
+    price: 'KSh 0',
+    period: '/month',
+    blurb: 'Try InvoicePro with 10 invoices a month.',
+    features: [
+      { ok: true, label: '10 invoices/month' },
+      { ok: true, label: 'Basic customer database' },
+      { ok: true, label: 'Simple receipt printing' },
+      { ok: true, label: 'Basic analytics (revenue chart only)' },
+      { ok: false, label: 'M-Pesa integration' },
+      { ok: false, label: 'VAT compliance' },
+      { ok: false, label: 'Inventory tracking' },
+      { ok: false, label: 'WhatsApp/Email receipts' },
+      { ok: false, label: 'Advanced analytics' },
+    ],
+  },
+  basic: {
+    id: 'basic',
+    name: 'Basic',
+    price: 'KSh 500',
+    period: '/month',
+    blurb: 'Unlimited invoices for a growing shop.',
+    features: [
+      { ok: true, label: 'Unlimited invoices' },
+      { ok: true, label: 'Customer database with history' },
+      { ok: true, label: 'Receipt printing + WhatsApp/Email sharing' },
+      { ok: true, label: 'M-Pesa payment reconciliation' },
+      { ok: true, label: 'VAT compliance (auto-calculation)' },
+      { ok: true, label: 'Basic inventory tracking (stock levels)' },
+      { ok: true, label: 'Analytics: Revenue + Top Products/Services' },
+      { ok: false, label: 'Advanced inventory (multiple locations)' },
+      { ok: false, label: 'SMS reminders' },
+      { ok: false, label: 'Priority support' },
+    ],
+  },
+  pro: {
+    id: 'pro',
+    name: 'Pro',
+    price: 'KSh 1,500',
+    period: '/month',
+    blurb: 'Branches, staff, and priority support.',
+    features: [
+      { ok: true, label: 'Everything in Basic' },
+      { ok: true, label: 'Advanced inventory (multiple branches)' },
+      { ok: true, label: 'Automated SMS reminders to customers' },
+      { ok: true, label: 'Staff management (2-5 users)' },
+      { ok: true, label: 'Advanced analytics (monthly comparisons, forecasts)' },
+      { ok: true, label: 'Priority email + WhatsApp support' },
+      { ok: true, label: 'Custom branding (logo on all invoices)' },
+      { ok: true, label: 'Bulk customer import/export' },
+    ],
+  },
+};
+
+export const PLAN_LIST = [PLANS.free, PLANS.basic, PLANS.pro];
