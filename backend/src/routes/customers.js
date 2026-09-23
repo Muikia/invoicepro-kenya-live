@@ -85,9 +85,6 @@ router.post('/', async (req, res, next) => {
     if (!phone) {
       return res.status(400).json({ error: 'Enter a valid Kenyan phone number' });
     }
-    if (email && !/[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return res.status(400).json({ error: 'Enter a valid email' });
-    }
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return res.status(400).json({ error: 'Enter a valid email' });
     }
