@@ -1,0 +1,63 @@
+# InvoicePro Kenya — Render Blueprint
+# Keep the GitHub repo PRIVATE. Render deploys from a private repo after you
+# connect GitHub. Do not change GitHub visibility to public.
+#
+# Dashboard: New → Blueprint → select Muikia/invoicepro-kenya
+# Docs: DEPLOYMENT.md and RENDER_DEPLOYMENT_CHECKLIST.md
+
+databases:
+  - name: invoicepro-db
+    plan: basic-256mb
+    databaseName: invoicepro
+    user: invoicepro
+    postgresMajorVersion: 16
+    region: oregon
+
+services:
+  - type: web
+    name: invoicepro-kenya
+    runtime: node
+    plan: starter
+    region: oregon
+    rootDir: .
+    buildCommand: npm --prefix backend install && npm --prefix frontend install --include=dev && npm --prefix frontend run build
+    startCommand: npm start --prefix backend
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: invoicepro-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: FRONTEND_URL
+        value: https://invoicepro-kenya.onrender.com
+      - key: EMAIL_FROM
+        value: InvoicePro Kenya <noreply@invoicepro.example.com>
+      - key: SUPPORT_EMAIL
+        value: support@invoicepro.example.com
+      - key: RESEND_API_KEY
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: AFRICASTALKING_API_KEY
+        sync: false
+      - key: AFRICASTALKING_USERNAME
+        sync: false
+      - key: PAYMENT_URL
+        sync: false
