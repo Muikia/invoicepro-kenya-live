@@ -2,16 +2,25 @@
   "name": "invoicepro-api",
   "version": "1.0.0",
   "private": true,
+  "description": "InvoicePro Kenya API",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "migrate": "knex migrate:latest"
+    "dev": "node --watch src/index.js",
+    "dev:db": "node scripts/local-pg.mjs",
+    "migrate": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback"
   },
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.5",
+    "@electric-sql/pglite-socket": "^0.2.8",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "embedded-postgres": "^18.4.0-beta.17",
     "express": "^4.21.2",
     "express-rate-limit": "^8.6.2",
     "jsonwebtoken": "^9.0.2",

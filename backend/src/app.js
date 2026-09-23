@@ -80,6 +80,7 @@ app.get('/api/health', async (req, res) => {
       time: new Date().toISOString(),
     });
   } catch (err) {
+    console.error('[health] database check failed');
     return res.status(503).json({
       ok: false,
       service: 'invoicepro-kenya',

@@ -27,13 +27,20 @@ module.exports = {
   development: {
     client: 'pg',
     connection: typeof connection === 'string' ? { connectionString: connection, ssl } : { ...connection, ssl },
-    migrations: { directory: path.join(__dirname, 'migrations') },
+    migrations: {
+      directory: path.join(__dirname, 'migrations'),
+    },
     pool: { min: 0, max: 1 },
   },
   production: {
     client: 'pg',
-    connection: { connectionString: databaseUrl, ssl: { rejectUnauthorized: false } },
-    migrations: { directory: path.join(__dirname, 'migrations') },
+    connection: {
+      connectionString: databaseUrl,
+      ssl: { rejectUnauthorized: false },
+    },
+    migrations: {
+      directory: path.join(__dirname, 'migrations'),
+    },
     pool: { min: 0, max: 5 },
   },
 };
